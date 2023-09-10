@@ -20,7 +20,11 @@ app.use(express.json());
 
 // Define a route to get the to-do list data
 app.get('/api/doits', (req, res) => {
-  res.json(doits);
+  if (doits.length === 0) {
+    res.send('Hello, user!');
+  } else {
+    res.json(doits);
+  }
 });
 
 // Define a route to add a new to-do item
